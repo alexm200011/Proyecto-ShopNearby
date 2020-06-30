@@ -1,0 +1,111 @@
+﻿@model BEUShopNearby.Tienda
+
+@{
+    ViewBag.Title = "REGISTRO DE TIENDAS";
+}
+
+<h2 style="color: white">Registrar Tienda</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="background-color:beige; padding-left:10%; border-radius:6px">
+        <h4 style="color:black">Tienda</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <p>Nombre :</p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p>Razón Social: </p>
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.R_Social, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.R_Social, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Número de Telefono: </p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.N_Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.N_Telefono, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Dirección: </p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Estado: </p>
+            <div class="col-md-10">
+                &nbsp;&nbsp;&nbsp;&nbsp;<label class="h5">
+                    Habilitado
+                </label>
+                @Html.RadioButtonFor(model => model.Estado, "H", htmlAttributes: new { @checked = "checked" })
+                &nbsp;&nbsp;&nbsp;&nbsp;<label class="h5">
+                    Deshabilitado
+                </label>
+                @Html.RadioButtonFor(model => model.Estado, "D")
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Horario de Atención:  </p>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Horario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Horario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Provincia: </p>
+            <div class="col-md-10">
+                @Html.DropDownList("idProvincia", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idProvincia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Ciudad: </p>
+            <div class="col-md-10">
+                @Html.DropDownList("idCiudad", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idCiudad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>Sector: </p>
+            <div class="col-md-10">
+                @Html.DropDownList("idSector", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idSector, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Registrar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a la Lista", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

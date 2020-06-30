@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pryShopNearby", "pryShopNearby\pryShopNearby.csproj", "{42C925CB-B963-458B-B932-D0550381EFB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEUShopNearby", "BEUShopNearby\BEUShopNearby.csproj", "{C46532FF-0301-4B6D-97D7-E43F82E705EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42C925CB-B963-458B-B932-D0550381EFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C925CB-B963-458B-B932-D0550381EFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C925CB-B963-458B-B932-D0550381EFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C925CB-B963-458B-B932-D0550381EFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46532FF-0301-4B6D-97D7-E43F82E705EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46532FF-0301-4B6D-97D7-E43F82E705EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46532FF-0301-4B6D-97D7-E43F82E705EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46532FF-0301-4B6D-97D7-E43F82E705EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBE356AD-C4BA-4639-B45D-986A722C0EDA}
+	EndGlobalSection
+EndGlobal

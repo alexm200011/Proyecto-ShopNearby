@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBShopNearbyModelStoreContainer" CdmEntityContainer="DBShopNearbyEntities1">
+    <EntitySetMapping Name="Ciudad">
+      <EntityTypeMapping TypeName="DBShopNearbyModel.Ciudad">
+        <MappingFragment StoreEntitySet="Ciudad">
+          <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+          <ScalarProperty Name="Identificador_P" ColumnName="Identificador_P" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Propietario">
+      <EntityTypeMapping TypeName="DBShopNearbyModel.Propietario">
+        <MappingFragment StoreEntitySet="Propietario">
+          <ScalarProperty Name="idPropietario" ColumnName="idPropietario" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="N_Telefono" ColumnName="N_Telefono" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincia">
+      <EntityTypeMapping TypeName="DBShopNearbyModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincia">
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sector">
+      <EntityTypeMapping TypeName="DBShopNearbyModel.Sector">
+        <MappingFragment StoreEntitySet="Sector">
+          <ScalarProperty Name="idSector" ColumnName="idSector" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Identificador_P" ColumnName="Identificador_P" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tienda">
+      <EntityTypeMapping TypeName="DBShopNearbyModel.Tienda">
+        <MappingFragment StoreEntitySet="Tienda">
+          <ScalarProperty Name="idTienda" ColumnName="idTienda" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="R_Social" ColumnName="R_Social" />
+          <ScalarProperty Name="N_Telefono" ColumnName="N_Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+          <ScalarProperty Name="idSector" ColumnName="idSector" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

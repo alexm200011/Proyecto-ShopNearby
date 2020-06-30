@@ -1,0 +1,72 @@
+﻿@model BEUShopNearby.Propietario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color:white">Eliminar información del Propietario</h2>
+
+<h3 style="color:white">¿Estás seguro de que quieres eliminar esta información?</h3>
+<div>
+    <h4>Propietario</h4>
+    <hr />
+    <dl class="dl-horizontal" style="background-color:beige; padding-left:10%; border-radius:6px">
+        <dt>
+            <p>Nombres: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombres)
+        </dd>
+
+        <dt>
+            <p>Apellidos: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellidos)
+        </dd>
+
+        <dt>
+            <p>Cédula: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            <p>Número de Teléfono: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.N_Telefono)
+        </dd>
+
+        <dt>
+            <p>Usuario: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            <p>Contraseña: </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contrasena)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar a la Lista", "Index")
+        </div>
+    }
+</div>

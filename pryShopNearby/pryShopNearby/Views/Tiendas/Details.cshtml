@@ -1,0 +1,90 @@
+﻿@model BEUShopNearby.Tienda
+
+@{
+    ViewBag.Title = "Detalle de la Tienda";
+}
+
+<h2 style="color:white">Detalles de la Tienda</h2>
+
+<div>
+    <h4 style="color:white">Tienda</h4>
+    <hr />
+    <dl class="dl-horizontal" style="background-color:beige; padding-left:10%; border-radius:6px">
+        <dt>
+            <p>Nombre :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            <p>Razón Social :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R_Social)
+        </dd>
+
+        <dt>
+            <p>Número de Teléfono :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.N_Telefono)
+        </dd>
+
+        <dt>
+            <p>Dirección :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            <p>Estado :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            <p>Horario :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario)
+        </dd>
+
+        <dt>
+            <p>Ciudad :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Nombre)
+        </dd>
+
+        <dt>
+            <p>Provincia :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia.Nombre)
+        </dd>
+
+        <dt>
+            <p>Sector :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idTienda },htmlAttributes: new { @class = "btn btn-sm btn-warning" }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

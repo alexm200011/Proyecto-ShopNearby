@@ -1,0 +1,12 @@
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\BEUShopNearby.dll.config
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\BEUShopNearby.dll
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\BEUShopNearby.pdb
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\EntityFramework.dll
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\EntityFramework.xml
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\obj\Debug\BEUShopNearby.csprojAssemblyReference.cache
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\obj\Debug\BEUShopNearby.csproj.CoreCompileInputs.cache
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\obj\Debug\BEUShopNearby.csproj.CopyComplete
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\obj\Debug\BEUShopNearby.dll
+C:\Users\alexp.DESKTOP-N7MSQIG\source\repos\Shop-Nearby\pryShopNearby\BEUShopNearby\obj\Debug\BEUShopNearby.pdb

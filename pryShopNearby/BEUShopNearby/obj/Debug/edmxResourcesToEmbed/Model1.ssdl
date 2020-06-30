@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBShopNearbyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="idCiudad" />
+    </Key>
+    <Property Name="idCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Identificador" Type="varchar" MaxLength="10" />
+    <Property Name="Identificador_P" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Propietario">
+    <Key>
+      <PropertyRef Name="idPropietario" />
+    </Key>
+    <Property Name="idPropietario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="varchar" MaxLength="200" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="200" />
+    <Property Name="Cedula" Type="varchar" MaxLength="15" />
+    <Property Name="N_Telefono" Type="varchar" MaxLength="10" />
+    <Property Name="Usuario" Type="varchar" MaxLength="200" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="idProvincia" />
+    </Key>
+    <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Identificador" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="idSector" />
+    </Key>
+    <Property Name="idSector" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Identificador_P" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Tienda">
+    <Key>
+      <PropertyRef Name="idTienda" />
+    </Key>
+    <Property Name="idTienda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="R_Social" Type="varchar" MaxLength="50" />
+    <Property Name="N_Telefono" Type="varchar" MaxLength="10" />
+    <Property Name="Direccion" Type="varchar" MaxLength="200" />
+    <Property Name="Estado" Type="nchar" MaxLength="1" />
+    <Property Name="Horario" Type="varchar" MaxLength="50" />
+    <Property Name="idProvincia" Type="int" />
+    <Property Name="idCiudad" Type="int" />
+    <Property Name="idSector" Type="int" />
+  </EntityType>
+  <Association Name="FK_Tienda_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+    <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="idCiudad" />
+      </Principal>
+      <Dependent Role="Tienda">
+        <PropertyRef Name="idCiudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tienda_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="idProvincia" />
+      </Principal>
+      <Dependent Role="Tienda">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tienda_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="0..1" />
+    <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="idSector" />
+      </Principal>
+      <Dependent Role="Tienda">
+        <PropertyRef Name="idSector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBShopNearbyModelStoreContainer">
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Propietario" EntityType="Self.Propietario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tienda" EntityType="Self.Tienda" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tienda_Ciudad" Association="Self.FK_Tienda_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Tienda" EntitySet="Tienda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tienda_Provincia" Association="Self.FK_Tienda_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Tienda" EntitySet="Tienda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tienda_Sector" Association="Self.FK_Tienda_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Tienda" EntitySet="Tienda" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

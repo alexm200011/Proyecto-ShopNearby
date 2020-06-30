@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c61616a82f243ebba0fa2c5ca11fbef" Name="Diagram1">
+        <EntityTypeShape EntityType="DBShopNearbyModel.Ciudad" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopNearbyModel.Propietario" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopNearbyModel.Provincia" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopNearbyModel.Sector" Width="1.5" PointX="3.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBShopNearbyModel.Tienda" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DBShopNearbyModel.FK_Tienda_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopNearbyModel.FK_Tienda_Provincia" ManuallyRouted="false" />
+        <AssociationConnector Association="DBShopNearbyModel.FK_Tienda_Sector" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

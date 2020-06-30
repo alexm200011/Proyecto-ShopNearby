@@ -1,0 +1,98 @@
+﻿@model BEUShopNearby.Tienda
+
+@{
+    ViewBag.Title = "Eliminar información de la Tienda";
+}
+
+<h2 style="color:white">Eliminar Información de la Tienda</h2>
+
+<h3 style="color:white">¿Estas seguro de eliminar esta información?</h3>
+<div>
+    <h4>Tienda</h4>
+    <hr />
+    <dl class="dl-horizontal" style="background-color:beige; padding-left:10%; border-radius:6px">
+        <dt>
+           
+            <p>Nombre :</p>
+        </dt>
+
+        <dd>
+            
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            <p>Razón Social :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.R_Social)
+        </dd>
+
+        <dt>
+            <p>Número de Telefono :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.N_Telefono)
+        </dd>
+
+        <dt>
+            <p>Dirección :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            <p>Estado :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            <p>Horario de Atención :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Horario)
+        </dd>
+
+        <dt>
+            <p>Ciudad :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad.Nombre)
+        </dd>
+
+        <dt>
+            <p>Provincia :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia.Nombre)
+        </dd>
+
+        <dt>
+            <p>Sector :</p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Regresar a la Lista", "Index")
+        </div>
+    }
+</div>

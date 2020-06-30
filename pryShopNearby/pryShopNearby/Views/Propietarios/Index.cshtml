@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BEUShopNearby.Propietario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:white">Propietarios</h2>
+
+<p>
+    @Html.ActionLink("Registrar Propietario", "Create")
+</p>
+<table class="table" style="background-color:beige; padding-left:10%; border-radius:6px">
+    <tr>
+        <th>
+            <p>Nombres</p>
+        </th>
+        <th>
+            <p>Apellidos</p>
+        </th>
+        <th>
+            <p>Cedula</p>
+        </th>
+        <th>
+            <p>Número de Telefono</p>
+        </th>
+        <th>
+            <p>Usuario</p>
+        </th>
+        <th>
+            <p>Contraseña</p>
+        </th>
+        <th>
+            <p>Acción</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N_Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrasena)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idPropietario }, htmlAttributes: new { @class = "btn btn-sm btn-warning" }) 
+            @Html.ActionLink("Detalles", "Details", new { id=item.idPropietario }, htmlAttributes: new { @class = "btn btn-sm btn-primary" }) 
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idPropietario }, htmlAttributes: new { @class = "btn btn-sm btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

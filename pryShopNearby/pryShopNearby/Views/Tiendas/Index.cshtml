@@ -1,0 +1,94 @@
+﻿@model IEnumerable<BEUShopNearby.Tienda>
+
+@{
+    ViewBag.Title = "Tiendas";
+}
+
+<h2 style="color:white">Tiendas</h2>
+<p style="color: azure">
+    @Html.ActionLink("Registrar Tienda", "Create")
+</p>
+<table class="table" style="background-color:beige; padding-left:10%; border-radius:6px">
+    <tr>
+        <th>
+            <p>Nombre de la Tienda</p>
+            <!--@Html.DisplayNameFor(model => model.Nombre)-->
+        </th>
+        <th>
+            <p>Razón Social</p>
+            <!--@Html.DisplayNameFor(model => model.R_Social)-->
+        </th>
+        <th>
+            <p>Número de Teléfono</p>
+            <!--@Html.DisplayNameFor(model => model.N_Telefono)-->
+        </th>
+        <th>
+            <p>Dirección</p>
+            <!--@Html.DisplayNameFor(model => model.Direccion)-->
+        </th>
+        <th>
+            <p>Estado</p>
+            <!--@Html.DisplayNameFor(model => model.Estado)-->
+        </th>
+        <th>
+            <p>Horario</p>
+            <!--@Html.DisplayNameFor(model => model.Horario)-->
+        </th>
+        <th>
+            <p>Ciudad</p>
+            <!--@Html.DisplayNameFor(model => model.Ciudad.Nombre)-->
+        </th>
+        <th>
+            <p>Provincia</p>
+            <!--@Html.DisplayNameFor(model => model.Provincia.Nombre)-->
+        </th>
+        <th>
+            <p>Sector</p>
+            <!--@Html.DisplayNameFor(model => model.Sector.Nombre)-->
+        </th>
+        <th>
+            <p>Acción</p>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.R_Social)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.N_Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Horario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciudad.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provincia.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector.Nombre)
+        </td>
+        <td>
+            <div class="btn-group" style="width: auto">
+                @Html.ActionLink("Editar", "Edit", new { id = item.idTienda },htmlAttributes: new { @class="btn btn-sm btn-warning"}) <br />
+                @Html.ActionLink("Detalles", "Details", new { id = item.idTienda }, htmlAttributes: new { @class = "btn btn-sm btn-primary" })<br /> 
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idTienda },htmlAttributes: new { @class = "btn btn-sm btn-danger" })
+            </div>
+            
+        </td>
+    </tr>
+}
+
+</table>

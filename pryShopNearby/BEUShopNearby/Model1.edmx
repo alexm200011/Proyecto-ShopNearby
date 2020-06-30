@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBShopNearbyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Name="idCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Identificador" Type="varchar" MaxLength="10" />
+          <Property Name="Identificador_P" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Propietario">
+          <Key>
+            <PropertyRef Name="idPropietario" />
+          </Key>
+          <Property Name="idPropietario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="200" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="200" />
+          <Property Name="Cedula" Type="varchar" MaxLength="15" />
+          <Property Name="N_Telefono" Type="varchar" MaxLength="10" />
+          <Property Name="Usuario" Type="varchar" MaxLength="200" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="idProvincia" />
+          </Key>
+          <Property Name="idProvincia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Identificador" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="idSector" />
+          </Key>
+          <Property Name="idSector" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Identificador_P" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Tienda">
+          <Key>
+            <PropertyRef Name="idTienda" />
+          </Key>
+          <Property Name="idTienda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="R_Social" Type="varchar" MaxLength="50" />
+          <Property Name="N_Telefono" Type="varchar" MaxLength="10" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Estado" Type="nchar" MaxLength="1" />
+          <Property Name="Horario" Type="varchar" MaxLength="50" />
+          <Property Name="idProvincia" Type="int" />
+          <Property Name="idCiudad" Type="int" />
+          <Property Name="idSector" Type="int" />
+        </EntityType>
+        <Association Name="FK_Tienda_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="idCiudad" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tienda_Provincia">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="idProvincia" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tienda_Sector">
+          <End Role="Sector" Type="Self.Sector" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="idSector" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idSector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBShopNearbyModelStoreContainer">
+          <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Propietario" EntityType="Self.Propietario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tienda" EntityType="Self.Tienda" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tienda_Ciudad" Association="Self.FK_Tienda_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tienda_Provincia" Association="Self.FK_Tienda_Provincia">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tienda_Sector" Association="Self.FK_Tienda_Sector">
+            <End Role="Sector" EntitySet="Sector" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBShopNearbyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ciudad">
+          <Key>
+            <PropertyRef Name="idCiudad" />
+          </Key>
+          <Property Name="idCiudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identificador" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Identificador_P" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tienda" Relationship="Self.FK_Tienda_Ciudad" FromRole="Ciudad" ToRole="Tienda" />
+        </EntityType>
+        <EntityType Name="Propietario">
+          <Key>
+            <PropertyRef Name="idPropietario" />
+          </Key>
+          <Property Name="idPropietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="N_Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="idProvincia" />
+          </Key>
+          <Property Name="idProvincia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identificador" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tienda" Relationship="Self.FK_Tienda_Provincia" FromRole="Provincia" ToRole="Tienda" />
+        </EntityType>
+        <EntityType Name="Sector">
+          <Key>
+            <PropertyRef Name="idSector" />
+          </Key>
+          <Property Name="idSector" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identificador_P" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tienda" Relationship="Self.FK_Tienda_Sector" FromRole="Sector" ToRole="Tienda" />
+        </EntityType>
+        <EntityType Name="Tienda">
+          <Key>
+            <PropertyRef Name="idTienda" />
+          </Key>
+          <Property Name="idTienda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="R_Social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="N_Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Horario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idProvincia" Type="Int32" />
+          <Property Name="idCiudad" Type="Int32" />
+          <Property Name="idSector" Type="Int32" />
+          <NavigationProperty Name="Ciudad" Relationship="Self.FK_Tienda_Ciudad" FromRole="Tienda" ToRole="Ciudad" />
+          <NavigationProperty Name="Provincia" Relationship="Self.FK_Tienda_Provincia" FromRole="Tienda" ToRole="Provincia" />
+          <NavigationProperty Name="Sector" Relationship="Self.FK_Tienda_Sector" FromRole="Tienda" ToRole="Sector" />
+        </EntityType>
+        <Association Name="FK_Tienda_Ciudad">
+          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="idCiudad" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tienda_Provincia">
+          <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="idProvincia" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tienda_Sector">
+          <End Role="Sector" Type="Self.Sector" Multiplicity="0..1" />
+          <End Role="Tienda" Type="Self.Tienda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sector">
+              <PropertyRef Name="idSector" />
+            </Principal>
+            <Dependent Role="Tienda">
+              <PropertyRef Name="idSector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBShopNearbyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
+          <EntitySet Name="Propietario" EntityType="Self.Propietario" />
+          <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+          <EntitySet Name="Sector" EntityType="Self.Sector" />
+          <EntitySet Name="Tienda" EntityType="Self.Tienda" />
+          <AssociationSet Name="FK_Tienda_Ciudad" Association="Self.FK_Tienda_Ciudad">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tienda_Provincia" Association="Self.FK_Tienda_Provincia">
+            <End Role="Provincia" EntitySet="Provincia" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tienda_Sector" Association="Self.FK_Tienda_Sector">
+            <End Role="Sector" EntitySet="Sector" />
+            <End Role="Tienda" EntitySet="Tienda" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBShopNearbyModelStoreContainer" CdmEntityContainer="DBShopNearbyEntities1">
+          <EntitySetMapping Name="Ciudad">
+            <EntityTypeMapping TypeName="DBShopNearbyModel.Ciudad">
+              <MappingFragment StoreEntitySet="Ciudad">
+                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+                <ScalarProperty Name="Identificador_P" ColumnName="Identificador_P" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Propietario">
+            <EntityTypeMapping TypeName="DBShopNearbyModel.Propietario">
+              <MappingFragment StoreEntitySet="Propietario">
+                <ScalarProperty Name="idPropietario" ColumnName="idPropietario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="N_Telefono" ColumnName="N_Telefono" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provincia">
+            <EntityTypeMapping TypeName="DBShopNearbyModel.Provincia">
+              <MappingFragment StoreEntitySet="Provincia">
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Identificador" ColumnName="Identificador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sector">
+            <EntityTypeMapping TypeName="DBShopNearbyModel.Sector">
+              <MappingFragment StoreEntitySet="Sector">
+                <ScalarProperty Name="idSector" ColumnName="idSector" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Identificador_P" ColumnName="Identificador_P" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tienda">
+            <EntityTypeMapping TypeName="DBShopNearbyModel.Tienda">
+              <MappingFragment StoreEntitySet="Tienda">
+                <ScalarProperty Name="idTienda" ColumnName="idTienda" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="R_Social" ColumnName="R_Social" />
+                <ScalarProperty Name="N_Telefono" ColumnName="N_Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Horario" ColumnName="Horario" />
+                <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+                <ScalarProperty Name="idSector" ColumnName="idSector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
